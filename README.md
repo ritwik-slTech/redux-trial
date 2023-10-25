@@ -3,11 +3,12 @@
 ## lets start by making a slice or we can say a state with its own logics
 
 ### 1. in slices folder make another slice and follow few steps 1. give it a unique name
+
 ### 2. give it a intial state as an object like this
 
-        const initialState = {
-                                 value: [],
-                            };
+    const initialState = {
+                        value: [],
+                        };
 
 ### 3. now lets give it some reducers
 
@@ -31,9 +32,13 @@
     import { setData, deleteData, updateData, addData } from "./slices/testDetails";
 
 ### 2. and write this to use it like a normal state
-const testDetails = useSelector((state) => state.testDetails.value);
+
+    const testDetails = useSelector((state) => state.testDetails.value);
+
 ### 3. and write this to use the methods we have specified in the slice
-const dispatch = useDispatch();
+
+    const dispatch = useDispatch();
+
 ### 4. we can use it like this, and whatever we will put inside the inner function of dispatch the arguments it will be in action.payload
 
     dispatch(deleteData(item))
