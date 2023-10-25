@@ -4,6 +4,7 @@
 
 ### 1. in slices folder make another slice and follow few steps 1. give it a unique name
 ### 2. give it a intial state as an object like this
+
         const initialState = {
                                  value: [],
                             };
@@ -25,6 +26,7 @@
 ## Let's Use it now!
 
 ### 1. lets import this
+
 import { useDispatch, useSelector } from "react-redux";
 import { setData, deleteData, updateData, addData } from "./slices/testDetails";
 
