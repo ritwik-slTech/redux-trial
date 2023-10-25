@@ -27,8 +27,8 @@
 
 ### 1. lets import this
 
-import { useDispatch, useSelector } from "react-redux";
-import { setData, deleteData, updateData, addData } from "./slices/testDetails";
+    import { useDispatch, useSelector } from "react-redux";
+    import { setData, deleteData, updateData, addData } from "./slices/testDetails";
 
 ### 2. and write this to use it like a normal state
 const testDetails = useSelector((state) => state.testDetails.value);
