@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { setData, deleteData, updateData, addData } from "./slices/testDetails";
+import { useDispatch } from "react-redux";
+import { useStateValue } from "./helpers/commonFunctions";
 
 const TestComponent = () => {
-  const testDetails = useSelector((state) => state.testDetails.value);
+  const testDetails = useStateValue("testDetails");
   const dispatch = useDispatch();
 
   async function getTodoData() {
@@ -16,28 +17,45 @@ const TestComponent = () => {
       })
       .catch((err) => err);
   }
+  useEffect(() => {
+    getTodoData();
+  }, []);
 
   return (
     <>
-    asddsd
+      asddsd
       {testDetails.map((item) => {
         return (
           <div key={item.id}>
-            <span>{item.id}</span>-
-            <span>{item.number}</span>
+            <span>{item.id}</span>-<span>{item.number}</span>
             <button onClick={() => dispatch(deleteData(item))}>Delete</button>
-            <button onClick={() => dispatch(updateData({id:item.id,number:Math.floor(Math.random() * 10)}))}>Update</button>
+            <button
+              onClick={() =>
+                dispatch(
+                  updateData({
+                    id: item.id,
+                    number: Math.floor(Math.random() * 10),
+                  })
+                )
+              }
+            >
+              Update
+            </button>
           </div>
         );
       })}
       <button
-        onClick={()=>dispatch(
-          addData({
-            id: Date.now(),
-            number: Math.floor(Math.random() * 10),
-          })
-        )}
-      >Add data</button>
+        onClick={() =>
+          dispatch(
+            addData({
+              id: Date.now(),
+              number: Math.floor(Math.random() * 10),
+            })
+          )
+        }
+      >
+        Add data
+      </button>
     </>
   );
 };
